@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,21 +29,138 @@ public class AplikasiCekNomorGanjilGenapFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        THasil = new javax.swing.JTextField();
+        LHasil = new javax.swing.JLabel();
+        BCek = new javax.swing.JButton();
+        BKeluar = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("Aplikasi Cek Nomor Ganjil Genap");
+
+        THasil.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
+        THasil.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                THasilFocusGained(evt);
+            }
+        });
+        THasil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                THasilKeyTyped(evt);
+            }
+        });
+
+        LHasil.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        LHasil.setText("Hasil :");
+
+        BCek.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        BCek.setText("Cek");
+        BCek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BCekActionPerformed(evt);
+            }
+        });
+
+        BKeluar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        BKeluar.setText("Keluar");
+        BKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BKeluarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(58, 58, 58))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BCek, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BKeluar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(LHasil)
+                        .addComponent(THasil, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addComponent(jSeparator2)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LHasil)
+                .addGap(4, 4, 4)
+                .addComponent(THasil, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BCek)
+                    .addComponent(BKeluar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BCekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCekActionPerformed
+        try {
+            int angka = Integer.parseInt(THasil.getText());
+        if (angka % 2 == 0) {
+            LHasil.setText("Angka " + angka + " adalah Genap");
+        } else {
+            LHasil.setText("Angka " + angka + " adalah Ganjil");
+        }
+            } catch (NumberFormatException e) {
+                LHasil.setText("Input bukan angka. Masukkan angka yang valid.");
+        }
+        JOptionPane.showMessageDialog(this, LHasil.getText());
+    }//GEN-LAST:event_BCekActionPerformed
+
+    private void THasilKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_THasilKeyTyped
+        char c = evt.getKeyChar();
+            if (!Character.isDigit(c)) {
+            evt.consume(); 
+        }
+    }//GEN-LAST:event_THasilKeyTyped
+
+    private void THasilFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_THasilFocusGained
+        THasil.setText("");
+        LHasil.setText("");
+    }//GEN-LAST:event_THasilFocusGained
+
+    private void BKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BKeluarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_BKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +198,13 @@ public class AplikasiCekNomorGanjilGenapFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BCek;
+    private javax.swing.JButton BKeluar;
+    private javax.swing.JLabel LHasil;
+    private javax.swing.JTextField THasil;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
