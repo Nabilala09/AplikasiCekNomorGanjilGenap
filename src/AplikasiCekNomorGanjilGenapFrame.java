@@ -57,7 +57,7 @@ public class AplikasiCekNomorGanjilGenapFrame extends javax.swing.JFrame {
             }
         });
 
-        LHasil.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        LHasil.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         LHasil.setText("Hasil :");
 
         BCek.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -113,9 +113,8 @@ public class AplikasiCekNomorGanjilGenapFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BCek)
                     .addComponent(BKeluar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,17 +134,34 @@ public class AplikasiCekNomorGanjilGenapFrame extends javax.swing.JFrame {
     private void BCekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCekActionPerformed
         try {
             int angka = Integer.parseInt(THasil.getText());
-        if (angka % 2 == 0) {
-            LHasil.setText("Angka " + angka + " adalah Genap");
-        } else {
-            LHasil.setText("Angka " + angka + " adalah Ganjil");
+                String hasil = "Angka " + angka;
+            if (angka % 2 == 0) {
+                hasil += " adalah Genap";
+            } else {
+                hasil += " adalah Ganjil";
         }
+                if (isPrima(angka)) {
+                    hasil += " dan Bilangan Prima";
+                } else {
+                    hasil += " dan Bukan Bilangan Prima";
+            }
+            LHasil.setText(hasil);
+                JOptionPane.showMessageDialog(this, hasil);
             } catch (NumberFormatException e) {
                 LHasil.setText("Input bukan angka. Masukkan angka yang valid.");
+                JOptionPane.showMessageDialog(this, "Input bukan angka. Masukkan angka yang valid.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, LHasil.getText());
     }//GEN-LAST:event_BCekActionPerformed
 
+        private boolean isPrima(int angka) {
+            if (angka <= 1) return false;
+                for (int i = 2; i <= Math.sqrt(angka); i++) {
+                    if (angka % i == 0) {
+                        return false;
+                }
+            }
+                return true;
+        }
     private void THasilKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_THasilKeyTyped
         char c = evt.getKeyChar();
             if (!Character.isDigit(c)) {
