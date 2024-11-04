@@ -40,7 +40,7 @@ Selain itu, terdapat validasi input untuk memastikan hanya angka yang dapat dima
 
 ## Informasi Pembuat
 
-- ingin mencoba program aplikasi silahkan klik link disamping. ()
+- ingin mencoba program aplikasi silahkan klik link disamping. (https://github.com/Nabilala09/AplikasiCekNomorGanjilGenap)
 - **Nama**: Nabila Parastiwi
 - **NPM**: 2210010420
 - **Kelas**: Reguler 5A Pagi Banjarmasin
